@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetCityIdService } from '../service/get-city-id.service';
+import { $ } from 'jquery';
 
 @Component({
   selector: 'app-homepage',

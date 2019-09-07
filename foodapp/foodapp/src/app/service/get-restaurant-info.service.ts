@@ -14,22 +14,14 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class GetRestaurantsService {
+export class GetRestaurantInfoService {
 
   constructor(private http: HttpClient) { }
 
-  apiUrl = "https://developers.zomato.com/api/v2.1/search?";
+  apiUrl = "https://developers.zomato.com/api/v2.1/restaurant?res_id=";
 
-  getRestaurants(cuisine, lat, long){
-    
-    //add latitude param
-    this.apiUrl = this.apiUrl + "lat=" + lat + "&";
-    //add longitude param
-    this.apiUrl = this.apiUrl + "lon=" + long + "&";
-    //add radius param, hardcoded as 30 miles
-    this.apiUrl = this.apiUrl + "radius=42480&";
-    //add latitude param
-    this.apiUrl = this.apiUrl + "cuisines=" + cuisine;
+  getRestaurantInfo(res_id:number) {
+    this.apiUrl = this.apiUrl + res_id;
     console.log(this.apiUrl)
     return this.http.get(this.apiUrl, httpOptions)
       .pipe(
@@ -37,16 +29,7 @@ export class GetRestaurantsService {
       );
   }
 
-  private stringifyList(ls) {
-    let total = "";
-    for(let item in ls) {
-      total += item + ","
-    }
-    total = total.substr(0, total.length-1)
-    return total
-  }
-
-  /**
+   /**
    * Handle Http operation that failed.
    * Let the app continue.
    * @param operation - name of the operation that failed
@@ -64,5 +47,6 @@ export class GetRestaurantsService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
+}
+
 }

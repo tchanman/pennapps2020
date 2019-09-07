@@ -1,20 +1,15 @@
-#center-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+mat-card {
+    width: 50vmax;
     justify-content: center;
 }
 
-.flex-item:first-child {
+mat-card-title {
     width: 100%;
 }
 
-.flex-item:not(:first-child) {
-    flex: auto;
-}
-
-#question-card {
-    width: 50%;
+.container {
+    display: flex;
+    
 }
 
 /* #question-card {

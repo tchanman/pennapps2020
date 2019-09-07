@@ -1,7 +1,13 @@
+<mat-toolbar color="primary">food mood</mat-toolbar>
 <p>question-page works!</p>
-<mat-card id="center-container">
-    <h1 class="flex-item">{{ question }}</h1>
-    <button class="flex-item" mat-raised-button color="primary" *ngFor="let answer of answers">{{ answer }}</button>
-    <button (click)="printLocation()">click to test</button>
-    <button (click)="getRestaurants(60)">get restaurants</button>
-</mat-card>
+<div class="container">
+    <mat-card id="flex-container">
+        <mat-card-title class="flex-item">{{ curQues }}</mat-card-title>
+        <mat-card-content>
+            <button (click)="addPoints(); edit()" class="flex-item" mat-raised-button color="primary" *ngFor="let answer of curAns">{{ answer }}</button>
+            <button (click)="printLocation()">click to test</button>
+            <button (click)="getRestaurants(60)">get restaurants</button>
+        </mat-card-content>
+    </mat-card>
+    <a mat-button [routerLink]="['/result', restaurantId]">Done</a>
+</div>
