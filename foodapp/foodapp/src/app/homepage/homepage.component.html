@@ -1,0 +1,17 @@
+Here is the home page!
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input #locationInput matInput placeholder="Enter location">
+    </mat-form-field>
+    <button mat-button color="primary"(click)="getCityId(locationInput.value)">Enter</button>
+</form>
+
+<div *ngIf="locationValid">
+    <nav>
+        <a mat-button [routerLink]="['/questions', cityId, latitude, longitude]">Start picking</a>
+        <a mat-button routerLink="/homepage">I'm feeling lucky</a>
+        
+    </nav>
+</div>
+

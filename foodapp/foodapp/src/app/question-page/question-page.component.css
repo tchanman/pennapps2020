@@ -1,0 +1,24 @@
+#center-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-item:first-child {
+    width: 100%;
+}
+
+.flex-item:not(:first-child) {
+    flex: auto;
+}
+
+#question-card {
+    width: 50%;
+}
+
+/* #question-card {
+    display: flex;
+    flex: auto;
+    flex-grow: 1;
+} */
