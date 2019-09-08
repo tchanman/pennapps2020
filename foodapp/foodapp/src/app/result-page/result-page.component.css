@@ -1,0 +1,33 @@
+.left-container {
+    text-align: left;
+    padding: 4rem;
+}
+
+#rest_img {
+    max-width: 42rem;
+    height: auto;
+}
+
+mat-card {
+    width: 50rem;
+    height: auto;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+mat-card-title {
+    width: 100%;
+}
+
+mat-toolbar > span > a:link, a:visited {
+    color: #e6e8e6;
+    text-decoration: none;
+}
+
+mat-toolar > span > a:hover, a:active {
+    color: #a2a2a2;
+    transition: 0.2s;
+}

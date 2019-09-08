@@ -21,9 +21,7 @@ export class GetCityIdService {
   apiUrl = "https://developers.zomato.com/api/v2.1/locations?query=";
 
   getCityId(cityName){
-    this.apiUrl = this.apiUrl + cityName;
-    console.log(this.apiUrl)
-    return this.http.get(this.apiUrl, httpOptions)
+    return this.http.get(this.apiUrl + cityName, httpOptions)
       .pipe(
         catchError(this.handleError('getHeroes', []))
       );

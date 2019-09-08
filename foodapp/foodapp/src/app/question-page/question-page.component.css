@@ -1,6 +1,9 @@
 mat-card {
-    width: 50vmax;
+    width: 40rem;
+    height: 35vh;
     justify-content: center;
+    margin: auto;
+    padding-top: 4rem;
 }
 
 mat-card-title {
@@ -9,8 +12,41 @@ mat-card-title {
 
 .container {
     display: flex;
-    
+    direction: row;
+    justify-content: space-between;
+    align-content: center;
+    height: auto;
+    margin-top: 9rem;
 }
+
+.flex-item:not(:first-child) {
+    flex-basis: 25%;
+    flex: 1 1 auto;
+    margin: 10px;
+}
+
+mat-toolbar > span > a:link, a:visited {
+    color: #e6e8e6;
+    text-decoration: none;
+}
+
+mat-toolar > span > a:hover, a:active {
+    color: #a2a2a2;
+    transition: 0.2s;
+}
+
+.line {
+    height:10px;
+    width:0;
+    margin-top:100px;
+    background:red;
+    transform:rotate(-45deg);
+    transform-origin:left;
+    animation:grow 1s linear forwards;
+  }
+  @keyframes grow{
+    to {width:100px;}
+  }
 
 /* #question-card {
     display: flex;

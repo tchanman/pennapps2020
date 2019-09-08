@@ -11,6 +11,8 @@ const httpOptions = {
   })
 };
 
+let firstTime = false;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,17 +23,26 @@ export class GetRestaurantsService {
   apiUrl = "https://developers.zomato.com/api/v2.1/search?";
 
   getRestaurants(cuisine, lat, long){
-    
+    console.log(cuisine);
+
+    let tempUrl = this.apiUrl;
     //add latitude param
-    this.apiUrl = this.apiUrl + "lat=" + lat + "&";
+    tempUrl = tempUrl + "lat=" + lat + "&";
     //add longitude param
-    this.apiUrl = this.apiUrl + "lon=" + long + "&";
+    tempUrl = tempUrl + "lon=" + long + "&";
     //add radius param, hardcoded as 30 miles
-    this.apiUrl = this.apiUrl + "radius=42480&";
+    tempUrl = tempUrl + "radius=42480";
     //add latitude param
-    this.apiUrl = this.apiUrl + "cuisines=" + cuisine;
-    console.log(this.apiUrl)
-    return this.http.get(this.apiUrl, httpOptions)
+    if (cuisine != ''){
+      tempUrl = '&' + tempUrl + "&cuisines=" + this.stringifyList(cuisine);
+    }
+
+    if(tempUrl[0] === "&") {
+      tempUrl = tempUrl.substr(1, tempUrl.length);
+    }
+    console.log("this is tempurl")
+    console.log(tempUrl)
+    return this.http.get(tempUrl, httpOptions)
       .pipe(
         catchError(this.handleError('getHeroes', []))
       );
@@ -39,10 +50,10 @@ export class GetRestaurantsService {
 
   private stringifyList(ls) {
     let total = "";
-    for(let item in ls) {
-      total += item + ","
+    for(let item of ls) {
+      total += item + "%2C"
     }
-    total = total.substr(0, total.length-1)
+    total = total.substr(0, total.length-3)
     return total
   }
 

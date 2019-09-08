@@ -9,22 +9,19 @@ const cuisines = {
     {"name": "Thai", "id": 95},
     {"name": "Indian", "id": 148}
   ],
-  "Quick Bites": [
-    {"name": "Bakery", "id": 5},  
+  "Quick Bites": [  
     {"name": "Bar Food", "id": 227},
     {"name": "Fast Food", "id": 40},
     {"name": "Pizza", "id": 82},
   ],
   "Healthy": [
-    {"name": "Healthy Food", "id": 143  },  
+    {"name": "Healthy Food", "id": 143},  
     {"name": "Salad", "id": 998},
     {"name": "Vegetarian", "id": 308}
   ],
   "Western": [
     {"name": "American", "id": 1},
     {"name": "Diner", "id": 541},
-    {"name": "Italian", "id": 55},
-    {"name": "Mexican", "id": 73},
     {"name": "Southern", "id": 471}
   ],
   "Thirsty": [
@@ -38,10 +35,17 @@ const cuisines = {
     {"name": "Ice Cream", "id": 223}
   ],
   "Breakfast": [
+    {"name": "Bakery", "id": 5},
     {"name": "Breakfast", "id": 182}
   ],
   "Seafood": [
     {"name": "Seafood", "id": 83}
+  ],
+  "Italian": [
+    {"name": "Italian", "id": 55}
+  ],
+  "Mexican": [
+    {"name": "Mexican", "id": 73}
   ]
 }
 

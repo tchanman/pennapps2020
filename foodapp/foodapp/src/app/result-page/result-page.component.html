@@ -1,3 +1,25 @@
-<mat-toolbar color="primary">food mood</mat-toolbar>
-<p>result-page works!</p>
+<mat-toolbar color="primary">
+    <span><a routerLink="/homepage">food mood</a></span>
+</mat-toolbar>
+
+<div class="left-container">
+    <mat-card class="flex-container" *ngIf="responseReceived">
+        <mat-card-title class="flex-item">{{restaurant.name}}</mat-card-title>
+        <mat-card-content>
+            <img id="rest_img" class="flex-item" src="{{ restaurant.photo_url }}">
+            <p class="flex-item">Address: {{restaurant.address}}</p>
+            <p class="flex-item">Cuisine: {{restaurant.cuisines}}</p>
+            <p class="flex-item">Price: {{restaurant.price_range}}</p>
+            <p class="flex-item">Overall Rating: {{restaurant.aggregate_rating}}</p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="review" *ngFor="let review of restaurant.reviews">
+        <mat-card-content>
+            <p class="flex-item">User: {{review.review.user.name}}</p>
+            <p class="flex-item">Rating: {{review.review.rating}}</p>
+            <p class="flex-item">{{review.review.review_text}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+
 <button (click)="getRestaurantInfo()">print restaurant info</button>

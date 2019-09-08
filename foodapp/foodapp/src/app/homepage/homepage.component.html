@@ -1,22 +1,31 @@
 <div class="container">
-    <h1>Welcome to Food Mood!</h1>
-    <h4 class="mat-h4">Are you in the Mood for Food?</h4>
-</div>
-
-<div class="container">
-    <form class="example-form">
-        <mat-form-field class="example-full-width">
-            <input id="textLocationInput" #locationInput matInput placeholder="Enter location">
-        </mat-form-field>
-        <button id="locationButton" mat-button color="primary"(click)="getCityId(locationInput.value)">Enter</button>
-    </form>
-    
-    <div *ngIf="locationValid">
-        <nav>
-            <a mat-button [routerLink]="['/questions', cityId, latitude, longitude]">Start picking</a>
-            <a mat-button routerLink="/homepage">I'm feeling lucky</a>
-            
-        </nav>
+        <span>
+            <img id="hamburger" src="https://x4dh821keaa8sskc20pbjfsq-wpengine.netdna-ssl.com/wp-content/uploads/2015/03/fast-food-functionality.gif">
+        </span>
     </div>
+<div class="flex-container">
+    <div class="left-container">
+        <h1>welcome to food mood!</h1>
+        <h4 class="mat-h4">are you in the mood for food?</h4>
+    </div>
+                
+    <div class="left-container">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input id="textLocationInput" #locationInput matInput placeholder="Enter location">
+            </mat-form-field>
+            <button id="locationButton" mat-button color="primary"(click)="getCityId(locationInput.value)">enter</button>
+            <button id="curLoc" mat-button color="primary" (click)="currentPosition()">Use Current Position</button>
+        </form>
+    </div>
+    <div class="left-container">
+        <div id="matbutton-container">
+            <nav>
+                <a id="start" class="btn-disabled" mat-button [routerLink]="['/questions', cityId, latitude, longitude]">start picking</a>
+                <button id = "lucky" class="btn-disabled" mat-button (click)="getRestaurants()">i'm feeling lucky</button>
+                <!--<a id="lucky" class="btn-disabled" mat-button routerLink="/homepage" >i'm feeling lucky</a>-->
+            </nav>
+        </div>
+    </div>
+        
 </div>
-

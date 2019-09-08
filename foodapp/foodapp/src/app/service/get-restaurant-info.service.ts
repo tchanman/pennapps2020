@@ -21,9 +21,7 @@ export class GetRestaurantInfoService {
   apiUrl = "https://developers.zomato.com/api/v2.1/restaurant?res_id=";
 
   getRestaurantInfo(res_id:number) {
-    this.apiUrl = this.apiUrl + res_id;
-    console.log(this.apiUrl)
-    return this.http.get(this.apiUrl, httpOptions)
+    return this.http.get(this.apiUrl + res_id, httpOptions)
       .pipe(
         catchError(this.handleError('getHeroes', []))
       );
